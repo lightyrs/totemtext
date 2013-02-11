@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211151734) do
+ActiveRecord::Schema.define(:version => 20130211165355) do
 
   create_table "attachments", :force => true do |t|
     t.string   "url"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(:version => 20130211151734) do
 
   add_index "document_attachments", ["attachment_id"], :name => "index_document_attachments_on_attachment_id"
   add_index "document_attachments", ["document_id"], :name => "index_document_attachments_on_document_id"
+
+  create_table "document_fragments", :force => true do |t|
+    t.integer  "document_id", :null => false
+    t.integer  "fragment_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "document_fragments", ["document_id"], :name => "index_document_fragments_on_document_id"
+  add_index "document_fragments", ["fragment_id"], :name => "index_document_fragments_on_fragment_id"
 
   create_table "document_links", :force => true do |t|
     t.integer  "document_id", :null => false
@@ -86,6 +96,12 @@ ActiveRecord::Schema.define(:version => 20130211151734) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "thoughts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
