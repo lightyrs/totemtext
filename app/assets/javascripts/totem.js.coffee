@@ -1,0 +1,2 @@
+$ ->
+  key 'enter, return', ->
