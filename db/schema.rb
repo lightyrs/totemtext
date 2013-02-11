@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211165355) do
+ActiveRecord::Schema.define(:version => 20130211170408) do
 
   create_table "attachments", :force => true do |t|
     t.string   "url"
@@ -51,9 +51,18 @@ ActiveRecord::Schema.define(:version => 20130211165355) do
   add_index "document_links", ["document_id"], :name => "index_document_links_on_document_id"
   add_index "document_links", ["link_id"], :name => "index_document_links_on_link_id"
 
+  create_table "document_users", :force => true do |t|
+    t.integer  "document_id", :null => false
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "document_users", ["document_id"], :name => "index_document_users_on_document_id"
+  add_index "document_users", ["user_id"], :name => "index_document_users_on_user_id"
+
   create_table "documents", :force => true do |t|
     t.string   "title"
-    t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

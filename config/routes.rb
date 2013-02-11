@@ -3,6 +3,7 @@ Totemtext::Application.routes.draw do
   root to: 'home#index'
 
   resources :documents
+  resources :thoughts
   resources :attachments
   resources :links
 

@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, as: :admin
   attr_accessible :provider, :uid, :name, :email
 
+  has_many :document_users
+  has_many :documents, through: :document_users
+  has_many :thoughts, through: :documents
+  has_many :attachments, through: :documents
+  has_many :links, through: :documents
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
