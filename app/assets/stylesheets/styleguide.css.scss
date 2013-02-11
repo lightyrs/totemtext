@@ -1,5 +1,6 @@
 body {
   background-color: $body_bg;
+  @include background-image(linear-gradient(bottom, rgba(255, 255, 255, .3) 0%, rgba(0, 0, 0, .05) 100%));
 }
 
 #main {
@@ -22,9 +23,11 @@ body {
   #sidebar {
     background-color: $sidebar_bg;
     height: 100%;
+    @include box-shadow(0 0 1px rgba(96, 96, 96, .65));
 
     > .wrapper {
       padding-left: 20px;
+      padding-right: 30px;
     }
   }
 

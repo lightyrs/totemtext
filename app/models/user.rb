@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email
 
   def self.create_with_omniauth(auth)
+    puts auth.inspect.red
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
