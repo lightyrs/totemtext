@@ -4,8 +4,9 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Totemtext =
+window.Totem =
   Models: {}
   Collections: {}
   Routers: {}
   Views: {}
+  Constants: {}
