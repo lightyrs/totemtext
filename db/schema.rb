@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211142631) do
+ActiveRecord::Schema.define(:version => 20130211143145) do
 
   create_table "attachments", :force => true do |t|
     t.string   "url"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(:version => 20130211142631) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "links", :force => true do |t|
+    t.string   "url"
+    t.string   "thumbnail"
+    t.string   "title"
+    t.text     "description"
+    t.string   "domain"
+    t.string   "brand"
+    t.string   "category"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|
