@@ -3,6 +3,10 @@ body {
   @include background-image(linear-gradient(bottom, rgba(255, 255, 255, .3) 0%, rgba(0, 0, 0, .05) 100%));
 }
 
+h1, h2 {
+  font-family: 'Megrim', cursive;
+}
+
 #main {
   position: absolute;
   top: 0;

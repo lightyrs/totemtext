@@ -9,8 +9,11 @@ class User < ActiveRecord::Base
       user.provider = auth['provider']
       user.uid = auth['uid']
       if auth['info']
-         user.name = auth['info']['name'] || ""
-         user.email = auth['info']['email'] || ""
+        user.name = auth['info']['name'] rescue ""
+        user.email = auth['info']['email'] rescue ""
+        user.location = auth['info']['location'] rescue "Earth"
+        user.avatar = auth['info']['image'] rescue ""
+        user.profile_url = auth['info']['urls']['Facebook'] rescue ""
       end
     end
   end

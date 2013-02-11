@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211082416) do
+ActiveRecord::Schema.define(:version => 20130211142631) do
+
+  create_table "attachments", :force => true do |t|
+    t.string   "url"
+    t.string   "filetype"
+    t.integer  "filesize"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "documents", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -29,8 +44,11 @@ ActiveRecord::Schema.define(:version => 20130211082416) do
     t.string   "email"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "avatar"
+    t.string   "location"
+    t.string   "profile_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users_roles", :id => false, :force => true do |t|

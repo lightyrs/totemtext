@@ -1,0 +1,10 @@
+.media.well.user-card
+  - if user_signed_in?
+    = link_to(image_tag(current_user.avatar, alt: current_user.name, class: 'media-object'), current_user.profile_url, class: 'pull-left')
+    .media-body
+      .pull-left
+        %h4.media-heading.user-name= current_user.name
+        %p.user-location= current_user.location
+      .pull-right= link_to 'Sign Out', signout_path, class: 'btn-mini btn'
+  - else
+    = link_to 'Sign In with Facebook', signin_path, class: 'btn btn-block btn-large btn-primary'
