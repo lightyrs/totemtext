@@ -9,4 +9,9 @@ window.Totem =
   Collections: {}
   Routers: {}
   Views: {}
-  Constants: {}
+  initialize: ->
+    new Totem.Routers.App
+    Backbone.history.start(pushState: true)
+
+jQuery(document).ready ->
+  Totem.initialize()

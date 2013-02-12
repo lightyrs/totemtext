@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, as: :admin
   attr_accessible :provider, :uid, :name, :email
 
+  def previous_document
+    documents.order('created_at DESC').limit(1).pop
+  end
+
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth['provider']
